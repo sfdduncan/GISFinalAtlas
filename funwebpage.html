@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        body {
+            background-color: #7fa96b; /* Accessible green background */
+            font-family: Helvetica, Arial, sans-serif;
+            color: #171717;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            align-items: center;
+            padding: 10px 20px;
+            width: 98%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-image: linear-gradient(transparent 95%, rgba(255, 255, 255, 0.7) 100%), 
+                              linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.7) 100%);
+            background-size: 50px 50px; /* Grid line spacing */
+        }
+
+        nav a {
+            background-color: #faf9f6; /* Off-white bubbles */
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #171717;
+            font-size: 1.2em;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            
+        }
+
+
+        #content {
+            margin-top: 50px;
+            position: relative;
+            padding: 40px;
+            background-image: linear-gradient(transparent 95%, rgba(255, 255, 255, 0.7) 100%), 
+                              linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.7) 100%);
+            background-size: 50px 50px; /* Grid line spacing */
+            background-color: #7fa96b; /* Match body background */
+            min-height: 100vh;
+        }
+
+        section {
+            background-color: #faf9f6; /* Off-white for text boxes */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            opacity: .97;
+        }
+
+        h2 {
+            color: #171717;
+            background-color: #faf9f6; /* Off-white background for the heading */
+            display: inline-block; /* Makes the box wrap around the text */
+            padding: 15px 20px; /* Adds padding around the text */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the box */
+            margin-bottom: 20px; /* Space below the heading */        }
+
+        iframe {
+            display: block;
+            margin: 20px auto;
+            width: 100%; /* Use full width */
+            height: 600px; /* Adjust height */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block; 
+            width: 50%; 
+            height: 400px; 
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="funwebpage.html">You are Exploring!</a>
+    </nav>
+
+    <div id="content">
+            <h2>Exploring Tribal Broadband Access in California</h2><br>        
+
+        <section id="broadband-context-us">
+            <h3>Broadband Context in the United States</h3>
+            <p>This map provides a comprehensive overview of broadband access across the United States, utilizing data distributed by the FCC. It emphasizes California as a particularly compelling case study due to its high number of BEAD-eligible locations, which include households categorized as underserved or unserved. To provide additional context, the map also highlights tribally owned broadband networks across the U.S., showcasing Indigenous-led efforts to bridge the digital divide on a national scale.</p>
+            <div style="display: flex; gap: 10px; padding-right: 1%">
+                <img src="images/All bead copy.png" style="max-width: 600px;">
+                <img src="images/All Broadband.png" style="max-width: 600px;">  
+                </div>    
+        </section>
+
+        <section id="middle-mile-california">
+            <h3>Middle Mile Infrastructure in California</h3>
+            <p>This map examines California's current middle-mile broadband infrastructure alongside the state’s recommended and planned buildout goals. It provides insights into the state’s existing broadband capabilities, including areas of strength and significant gaps in infrastructure. This analysis serves as a foundation for understanding California’s potential to connect underserved communities, focusing on the critical middle-mile infrastructure required to support last-mile connectivity in rural and Indigenous areas.</p>
+            <center><img src="images/BEAD ELIGIBLE (17 x 11 in) (3).png" style="max-width: 310px"></center>
+        </section>
+
+        <section id="tribal-gov-middle-mile">
+            <h3>Tribal Governments and Middle Mile Proximity</h3>
+            <p>This map combines several data layers, including tribal government office locations, federally recognized tribal lands, and the existing middle-mile broadband network. It highlights which tribal governments reside on federally recognized lands—revealing that many do not—and evaluates the proximity of these communities to broadband infrastructure. This map underscores the challenges of extending last-mile broadband connections to remote tribal areas and provides a lens for understanding how physical distance from middle-mile infrastructure can exacerbate digital inequities.</p>
+            <center><img src="images/Assignment2_Map3.png"></center>
+        </section>
+
+        <section id="bead-indigenous-representation">
+            <h3>Indigenous Representation and Broadband Inequities</h3>
+            <p>This section features two complementary maps that explore the intersection of Indigenous representation and broadband inequities across California.<br>
+                <br>               
+                The first map focuses on BEAD-eligible locations—households classified as underserved or unserved—and visualizes their distribution across California’s census tracts using proportional symbology. By overlaying this data with the percentage of Indigenous people in each tract, the map reveals patterns of broadband inequity in areas with significant Indigenous populations. Together, these maps identify areas most in need of targeted investments, emphasizing the critical role of broadband access in addressing digital inequities in Indigenous communities.
+                <br>
+                <br>
+                The second map uses Voronoi polygons to represent Indigenous populations by connecting tribal government offices and communities with their own broadband networks. This method challenges traditional census enumeration by providing an alternative perspective on where Indigenous populations reside and how they align with existing broadband infrastructure. Additionally, it overlays active, expected, and proposed tribal broadband networks, highlighting ongoing efforts by Indigenous communities to achieve digital equity.
+            </p>
+            <div style="display: flex; gap: 10px; padding-right: 1%">
+            <img src="images/2.png" style="max-width: 600px;">
+            <img src="images/3.png" style="max-width: 600px;">  
+            </div>     
+        </section>
+
+        <section id="federal-funding">
+            <h3>Federal Broadband Funding</h3>
+            <p>This map highlights areas across California currently receiving or in the process of receiving federal funding to develop broadband infrastructure. It provides a snapshot of where investments are being made and raises questions about the alignment between federal funding priorities and the broadband needs of Indigenous communities. By analyzing these funding patterns, the map aims to foster a discussion on how future investments can better address the digital divide in tribal areas.</p>
+        </section>
+
+        <section id="tribal-broadband-case-studies">
+            <h3>Case Studies: Tribally Owned Broadband Networks</h3>
+            <p>These maps focus on specific tribal communities in California that have successfully developed and operate their own broadband networks. Each case study demonstrates the resilience and innovation of Indigenous-led initiatives, showcasing how these communities are addressing their digital needs through self-determination. These examples provide valuable insights and inspiration for other communities striving to achieve digital sovereignty.</p>
+        </section>
+
+        <section id="interactive-tribal-networks">
+            <h3>Interactive Map: Explore Tribal Networks</h3>
+            <p>An interactive map feature allowing users to zoom in and explore tribal communities with their own broadband networks, providing a dynamic and engaging conclusion to the atlas.</p>
+            <iframe src="https://sfdduncan.github.io/InternetTower/" title="Interactive Map"></iframe>
+        </section>
+    </div>
+</body>
+</html>
