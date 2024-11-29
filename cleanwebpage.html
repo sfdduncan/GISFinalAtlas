@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Tribal Broadband Access</title>
+    <style>
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%; /* Stack the columns vertically on smaller screens */
+    }
+}
+
+    @font-face {
+    font-family: 'Favorit-book';
+    src: 
+        url("../fonts/favorit-book.woff2") format("woff2 supports variations"),
+        url("../fonts/favorit-book.woff2") format("woff2-variations");
+    font-weight: bold;
+}
+
+.row {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: center; /* Center content horizontally */
+    gap: 0px; 
+    margin-top: 10px; /* Add spacing above the row */
+}
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  display: flex;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    @font-face { 
+        font-family: 'OverusedGrotesk'; 
+        src: 
+            url("../fonts/OverusedGrotesk-Book.woff2") format("woff2 supports variations"),
+            url("../fonts/OverusedGrotesk-Book.woff2") format("woff2-variations");
+        font-weight: normal; 
+    }
+
+    @font-face { 
+
+        font-family: 'HelveticaNeue';
+        src: 
+            url("../fonts/HelveticaNeueMedium.otf") format('opentype');
+        font-weight: normal; 
+        font-style: normal
+    }
+
+    @font-face { 
+
+        font-family: 'HelveticaNeueBold';
+        src: 
+            url("../fonts/HelveticaNeueBold.otf") format('opentype');
+        font-weight: normal; 
+        font-style: normal
+        }
+    @font-face { 
+
+        font-family: 'HelveticaNeueLight';
+        src: 
+            url("../fonts/HelveticaNeueLight.otf") format('opentype');
+        font-weight: normal; 
+    }
+        body {
+            font-family: 'HelveticaNeueLight', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #171717;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+
+        /* Full-Screen Sections */
+        section {
+            height: 120vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            scroll-behavior: smooth;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5vw;
+            line-height: 1.2;
+            font-family: 'OverusedGrotesk', Arial, Helvetica, sans-serif;
+        }
+
+        h2 { 
+            font-size: 3vw; 
+            line-height: 1.2; 
+            font-weight: bold;
+            font-family: 'OverusedGrotesk', Arial, Helvetica, sans-serif;
+
+        }
+
+        p {
+            font-size: 1.5vw;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+
+        /* Image Styling */
+        img {
+            max-width: 80%;
+            height: auto;
+            margin: 40px auto 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0);
+        }
+
+        nav .name {
+            font-family: 'OverusedGrotesk', sans-serif;
+            font-weight: bold;
+            font-size: 2em;
+            cursor: pointer; /* Indicates that the name is clickable */
+        }
+
+        nav .menu-icon {
+            font-size: 2em;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 20px;
+        }
+
+        nav .menu-icon div {
+            background-color: #171717;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 70px;
+            right: 40px;
+            background: #faf9f6;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            width: 200px;
+            padding: 10px;
+            z-index: 2000;
+        }
+
+        .dropdown-menu a {
+            text-decoration: none;
+            color: #171717;
+            padding: 10px 15px;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f4f4f4;
+        }
+
+        .menu-active {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        /* Scroll Prompt */
+        .scroll-prompt {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            color: #555555;
+            animation: fadeInOut 5s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #intro { 
+            height: 70vh; /* Adjust the height to reduce vertical space */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="name" id="home-button">Steven Duncan</div>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="#intro">Home</a>
+            <a href="#broadband-context">Context</a>
+            <a href="#middle-mile">Middle Mile</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#tribal-networks">Tribal Networks</a>
+        </div>
+    </nav>
+
+    <!-- Sections -->
+    <section id="intro" class="visible">
+        <div>
+            <h1>Exploring Tribal Broadband Access</h1>
+            <p>This is an exploratory atlas documenting broadband infrastructure and Indigenous efforts toward digital equity in California.</p>
+        </div>
+    </section>
+
+    <section>
+        <div> 
+            <img src="images/Hoopa-Mill.jpeg">
+        </div>
+    </section>
+
+    <section id="broadband-context">
+        <div>
+            <h2>Broadband Context in the United States</h2>
+            <p>This map provides a comprehensive overview of broadband access across the United States, utilizing data distributed by the FCC. It emphasizes California as a particularly compelling case study due to its high number of BEAD-eligible locations, which include households categorized as underserved or unserved (i.e. possessing internet download/upload speeds of less than 100/20 Mbps and 25/3Mbps).</p>
+            <img src="images/All bead copy.png" alt="Broadband Map">
+        </div>
+    </section>
+
+    <section id="middle-mile">
+        <div>
+            <h2>Middle Mile Infrastructure and Tribal Lands in California</h2>
+            <p>This map combines several data layers, including tribal government office locations, federally recognized tribal lands, and the existing middle-mile broadband network. It highlights which tribal governments reside on federally recognized lands—revealing that many do not—and evaluates the proximity of these communities to broadband infrastructure. This map underscores the challenges of extending last-mile broadband connections to remote tribal areas and provides a lens for understanding how physical distance from middle-mile infrastructure can exacerbate digital inequities.</p>
+            <img src="images/Middle Mile Tribal Lands.png">
+        </div>
+    </section>
+
+    <section id="Indigenous-Owned-US">
+        <div>
+            <h2>Tribally Owned Broadband Infrastructure across the United States</h2>
+            <p>Luckily, many tribes have opted to adopt their own broadband infrastructure to address these issues while also protecting Indigenous cultural values and tribal data. By establishing and managing their own networks, tribes can ensure equitable access to critical services like education, healthcare, and governance, while also safeguarding sensitive cultural information.</p>
+            <img src="images/All Broadband.png" alt="Broadband Map">
+        </div>
+    </section>
+
+    <section id="Contextualize-Indigenous">
+        <div>
+            <h2>Indigenous Representation and Broadband Inequities</h2>
+            <p>This section presents two maps highlighting broadband inequities and Indigenous representation across California. The first map visualizes BEAD-eligible locations alongside the percentage of Indigenous people in each census tract, revealing areas most in need of broadband investment. The second map uses Voronoi polygons to connect tribal government offices and broadband networks, offering an alternative view of Indigenous population distribution and their alignment with existing and proposed broadband infrastructure. Together, these maps emphasize the importance of targeted investments to address digital inequities in Indigenous communities.</p>
+            <div class="row">
+                <div class="column">
+                    <img src="images/BEAD Eligibility.png" alt="BEAD California" style="width:100%">
+                </div>
+                <div class="column">
+                    <img src="images/Voronoi.png" alt="Voronoi" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section id="map-case-studies">
+        <div>
+            <h2>Federally Funded, Tribally Owned Broadband Case Studies</h2>
+            <p>This map examines California's current middle-mile broadband infrastructure alongside the state’s recommended and planned buildout goals. It provides insights into the state’s existing broadband capabilities, including areas of strength and significant gaps in infrastructure. This analysis serves as a foundation for understanding California’s potential to connect underserved communities, focusing on the critical middle-mile infrastructure required to support last-mile connectivity in rural and Indigenous areas.</p>
+            <img src="images/Case Studies.png">
+        </div>
+    </section>
+
+    <section id="case-studies">
+        <div>
+        <iframe 
+            src="https://sfdduncan.github.io/storytellingCaseStudies/" 
+            title="Scrollytelling Map"
+            width="1200px"
+            height="800px"
+            frameborder="0"
+            style="
+            border-radius: 10px; 
+            padding: 10px; 
+            background-color: #ffffff; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+        </iframe>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <section id="tribal-networks">
+        <div>
+            <h2>Interactive Tribal Networks</h2>
+            <p>This is another interactive map feature where users can zoom in and explore more tribal communities with their own broadband networks</p>
+            <iframe src="https://sfdduncan.github.io/InternetTower/" title="Interactive Map"
+            width="1200px"
+            height="700px"
+            frameborder="0"
+            style=
+                "border-radius: 10px;
+                padding: 10px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                overflow: hidden;"
+            ></iframe>
+        </div>
+    </section>
+
+
+    <script>
+// Scroll-triggered animations
+        document.addEventListener("scroll", function () {
+            const sections = document.querySelectorAll("section");
+            const viewportHeight = window.innerHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+
+                // Add 'visible' class when the section is in the viewport
+                if (sectionTop < viewportHeight && sectionBottom > 0) {
+                    section.classList.add("visible");
+                } else {
+                    section.classList.remove("visible");
+                }
+            });
+        });
+
+        // Dropdown menu toggle
+        const menuIcon = document.getElementById("menu-icon");
+        const dropdownMenu = document.getElementById("dropdown-menu");
+
+        menuIcon.addEventListener("click", function() {
+            dropdownMenu.classList.toggle("menu-active");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(e) {
+            if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("menu-active");
+            }
+        });
+
+        // Home button scroll
+        const homeButton = document.getElementById("home-button");
+        homeButton.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+    </script>
+</body>
+</html>
